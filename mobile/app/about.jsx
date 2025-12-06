@@ -5,6 +5,7 @@ const About = () => {
   return (
     <View>
       <Text>About</Text>
+      <Text>Hey this is my about page!</Text>
     </View>
   );
 };
