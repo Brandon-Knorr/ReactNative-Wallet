@@ -73,7 +73,7 @@ export default function SignUpScreen() {
       <View style={styles.verificationContainer}>
         <Text style={styles.verificationTitle}>Verify your email</Text>
 
-        {true ? (
+        {error ? (
           <View style={styles.errorBox}>
             <Ionicons name="alert-circle" size={20} color={COLORS.expense} />
             <Text style={styles.errorText}>{"Something went wrong!"}</Text>
@@ -82,7 +82,9 @@ export default function SignUpScreen() {
             </TouchableOpacity>
           </View>
         ) : null}
+
         <TextInput
+          style={[styles.verificationInput, error && styles.errorInput]}
           value={code}
           placeholder="Enter your verification code"
           onChangeText={(code) => setCode(code)}
