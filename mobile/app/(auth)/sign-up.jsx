@@ -68,7 +68,7 @@ export default function SignUpScreen() {
     }
   };
 
-  if (true) {
+  if (pendingVerification) {
     return (
       <View style={styles.verificationContainer}>
         <Text style={styles.verificationTitle}>Verify your email</Text>
