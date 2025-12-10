@@ -5,6 +5,7 @@ import { Link, useRouter } from "expo-router";
 import { styles } from "@/assets/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/colors";
+import { Image } from "expo-image";
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -99,7 +100,11 @@ export default function SignUpScreen() {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <>
+      <View style={styles.container}>
+        <Image
+          source={require("../../assets/images/robotv1.png")}
+          style={styles.illustration}
+        />
         <Text>Sign up</Text>
         <TextInput
           autoCapitalize="none"
@@ -122,7 +127,7 @@ export default function SignUpScreen() {
             <Text>Sign in</Text>
           </Link>
         </View>
-      </>
+      </View>
     </View>
   );
 }

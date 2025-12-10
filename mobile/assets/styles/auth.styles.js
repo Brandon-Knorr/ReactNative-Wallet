@@ -2,7 +2,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../../constants/colors";
 
-export const styles = StyleSheet.create({
+export const styles = StyleSheet.create( {
     container: {
         flex: 1,
         backgroundColor: COLORS.background,
@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
     },
     illustration: {
-        width: "100%",
-        height: 310,
+        width: 350,
+        height: 350,
         resizeMode: "contain",
     },
     title: {
@@ -108,4 +108,4 @@ export const styles = StyleSheet.create({
         flex: 1,
         fontSize: 14,
     },
-});
+} );
