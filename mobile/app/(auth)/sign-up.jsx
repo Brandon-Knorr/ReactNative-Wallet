@@ -105,6 +105,7 @@ export default function SignUpScreen() {
       contentContainerStyle={{ flexGrow: 1 }}
       enableOnAndroid={true}
       enableAutomaticScroll={true}
+      extraScrollHeight={50}
     >
       <View style={styles.container}>
         <Image
