@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
-import { Link } from "expo-router";
-import { Text, View, Image } from "react-native";
+import { Link, router } from "expo-router";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import { SignOutButton } from "@/components/SignOutButton";
 import
 {
@@ -11,6 +11,7 @@ import
 import PageLoader from "@/components/PageLoader";
 import { useEffect } from "react";
 import { styles } from "../../assets/styles/home.styles";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Page ()
 {
@@ -36,19 +37,24 @@ export default function Page ()
               style={ styles.headerLogo }
               resizeMode="contain" />
             <View style={ styles.welcomeContainer }>
-              <Text style={ styles.welcomeText }>Welcome to BanK It,</Text>
+              <Text style={ styles.welcomeText }>BANK IT</Text>
               <Text style={ styles.usernameText }>
                 { user?.emailAddresses[ 0 ]?.emailAddress.split( "@" )[ 0 ] }
               </Text>
             </View>
           </View>
-          {/* LEFT */ }
+          {/* RIGHT */ }
+          <View style={ styles.headerRight }>
+            <TouchableOpacity style={ styles.addButton } onPress={ () => router.push( "/create" ) }>
+              <Ionicons name="add-circle" size={ 24 } color="#FFF" />
+              <Text style={ styles.addButtonText }>Add</Text>
+            </TouchableOpacity>
+            <SignOutButton />
+          </View>
 
         </View>
-
+        {/* RIGHT */ }
       </View>
-      {/* RIGHT */ }
     </View>
-
   );
 }
