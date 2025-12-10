@@ -98,7 +98,7 @@ export default function SignUpScreen() {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <>
         <Text>Sign up</Text>
         <TextInput
