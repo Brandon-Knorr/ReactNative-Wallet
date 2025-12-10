@@ -105,27 +105,47 @@ export default function SignUpScreen() {
           source={require("../../assets/images/robotv1.png")}
           style={styles.illustration}
         />
-        <Text>Sign up</Text>
+
+        <Text style={styles.title}>Create Account</Text>
+
+        {error ? (
+          <View style={styles.errorBox}>
+            <Ionicons name="alert-circle" size={20} color={COLORS.expense} />
+            <Text style={styles.errorText}>{"Something went wrong!"}</Text>
+            <TouchableOpacity onPress={() => setError("")}>
+              <Ionicons name="close" size={20} color={COLORS.textLight} />
+            </TouchableOpacity>
+          </View>
+        ) : null}
+
         <TextInput
+          style={[styles.input, error && styles.errorInput]}
           autoCapitalize="none"
           value={emailAddress}
+          placeholderTextColor={"#9A8478"}
           placeholder="Enter email"
           onChangeText={(email) => setEmailAddress(email)}
         />
+
         <TextInput
+          style={[styles.input, error && styles.errorInput]}
           value={password}
+          placeholderTextColor={"#9A8478"}
           placeholder="Enter password"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
-        <TouchableOpacity onPress={onSignUpPress}>
-          <Text>Continue</Text>
+
+        <TouchableOpacity style={styles.button} onPress={onSignUpPress}>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
-        <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
-          <Text>Already have an account?</Text>
-          <Link href="/sign-in">
-            <Text>Sign in</Text>
-          </Link>
+
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>Already have an account?</Text>
+
+          <TouchableOpacity onPress={() => router.back()}>
+            <Text style={styles.linkText}>Sign In</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
