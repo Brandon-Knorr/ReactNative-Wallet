@@ -52,6 +52,54 @@ Before starting, ensure you have:
 ## 🔧 Installation & Setup
 
 ### 1. Clone the Repository
-```bash
+
 git clone [https://github.com/yourusername/reactnative-wallet.git](https://github.com/yourusername/reactnative-wallet.git)
 cd reactnative-wallet
+
+### 2. Backend Configuration
+The backend handles API requests and database connections.
+
+1.  **Navigate to the backend folder:**
+    ```bash
+    cd backend
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Environment Variables:**
+    Create a `.env` file in the `backend` root directory. Add the following keys (using your credentials from Neon and Upstash):
+
+    ```env
+    # Server Port (Default is 5001)
+    PORT=5001
+
+    # Neon Database Connection String
+    DATABASE_URL=postgres://<user>:<password>@<host>/<dbname>?sslmode=require
+
+    # Upstash Redis Keys (For Rate Limiting)
+    UPSTASH_REDIS_REST_URL=[https://your-instance.upstash.io](https://your-instance.upstash.io)
+    UPSTASH_REDIS_REST_TOKEN=your_upstash_token
+    ```
+
+4.  **Start the Server:**
+    ```bash
+    npm run dev
+    # OR
+    node src/server.js
+    ```
+    *Success Message: "Server is running on port: 5001" and "Database initialized SUCCESSFULLY"*
+
+### 3. Database Setup (Automated)
+This project is configured to **automatically create the required tables** when the server starts. You do not need to run manual SQL scripts.
+
+For reference, the schema created is:
+```sql
+CREATE TABLE IF NOT EXISTS transactions(
+    id SERIAL PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    category VARCHAR(100),
+    created_at DATE NOT NULL DEFAULT CURRENT_DATE
+);
