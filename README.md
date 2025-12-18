@@ -21,6 +21,24 @@
 
 ---
 
+## 📱 Application Interface
+
+**Authentication & Onboarding**
+*Secure login and registration powered by Clerk.*
+
+| Sign In Screen | Create Account |
+| :---: | :---: |
+| ![Sign In Screen](signIn.png) | ![Create Account Screen](createAccount.png) |
+
+**Dashboard & Management**
+*Track your balance in real-time and easily add new income or expenses.*
+
+| Home Dashboard | Add Transaction |
+| :---: | :---: |
+| ![Home Screen](homeScreen.png) | ![Add Transaction Modal](addTransaction.png) |
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Mobile (Frontend)
