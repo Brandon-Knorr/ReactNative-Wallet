@@ -123,7 +123,7 @@ export default function SignUpScreen ()
     >
       <View style={ styles.container }>
         <Image
-          source={ require( "../../assets/images/robotcoinv2.png" ) }
+          source={ require( "../../assets/images/revenue-i2.png" ) }
           style={ styles.illustration }
         />
 
